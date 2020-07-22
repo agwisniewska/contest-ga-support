@@ -4,10 +4,22 @@ import './index.css';
 import {App} from './App';
 import * as serviceWorker from './serviceWorker';
 import {BrowserRouter} from "react-router-dom";
+import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
+
+const history = createBrowserHistory();
+const trackingId = "UA-173295022-1";
+
+ReactGA.initialize(trackingId);
+
+history.listen(location => {
+    ReactGA.set({ page: location.pathname }); // Update the user's current page
+    ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 
 ReactDOM.render(
   <React.StrictMode>
-      <BrowserRouter>
+      <BrowserRouter history={history}>
         <App />
       </BrowserRouter>
   </React.StrictMode>,
