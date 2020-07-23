@@ -9,6 +9,11 @@ export function Guess({match}) {
     const handleSubmit = (event) => {
         event.preventDefault();
         console.log(value);
+
+        ReactGA.event({
+            category: 'Form Submit',
+            action: 'Save the answer'
+        })
     }
 
     return (
