@@ -4,11 +4,12 @@ import {withRouter} from "react-router";
 import PropTypes from "prop-types";
 
 function sendPageView(location) {
-    ReactGA.set({page: location.pathname});
-    ReactGA.pageview(location.pathname);
+    ReactGA.set({page: location.pathname + location.search});
+    ReactGA.pageview(location.pathname + location.search);
 }
 
 function GAListener({children, trackingId, history}) {
+
     useEffect(() => {
         ReactGA.initialize(trackingId);
         sendPageView(history.location);

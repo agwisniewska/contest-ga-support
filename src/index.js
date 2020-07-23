@@ -3,18 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import {App} from './App';
 import * as serviceWorker from './serviceWorker';
-import {BrowserRouter} from "react-router-dom";
 import GAListener from "./components/GAListener";
+import {createBrowserHistory} from "history";
 
 const trackingId =  "UA-173295022-1";
+const history = createBrowserHistory()
 
 
 ReactDOM.render(
-      <BrowserRouter>
-          <GAListener trackingId={trackingId}>
+          <GAListener trackingId={trackingId} history={history}>
               <App />
-          </GAListener>
-      </BrowserRouter>,
+          </GAListener>,
   document.getElementById('root')
 );
 
