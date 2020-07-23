@@ -1,10 +1,17 @@
-import React, {useState} from "react";
+import React, {useState, useEffect } from "react";
 import ReactGA from 'react-ga';
 
-export function Guess({match}) {
+
+export function Guess(props) {
+
+    useEffect(() => { GAPageView(props.history.location.pathname); }, []);
 
     const [value, setValue] = useState('');
     const [url, setUrl] = useState('/react/level/1/');
+
+    const GAPageView = (page) => {
+        ReactGA.pageview(page);
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -18,7 +25,7 @@ export function Guess({match}) {
 
     return (
         <>
-            <h1> Zagadka nr <b> {match.params.level} </b></h1>
+            <h1> Zagadka nr <b> {props.match.params.level} </b></h1>
             <p> Tekst zagadki </p>
             <h2> Rozwiązanie </h2>
 

@@ -9,6 +9,7 @@ function sendPageView(location) {
 }
 
 function GAListener({children, trackingId, history}) {
+    console.log('HISTORY LOCATION', history.location);
 
     useEffect(() => {
         ReactGA.initialize(trackingId);
