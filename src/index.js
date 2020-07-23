@@ -5,15 +5,18 @@ import {App} from './App';
 import * as serviceWorker from './serviceWorker';
 import GAListener from "./components/GAListener";
 import {createBrowserHistory} from "history";
+import {BrowserRouter} from "react-router-dom";
 
 const trackingId =  "UA-173295022-1";
 const history = createBrowserHistory()
 
 
 ReactDOM.render(
+    <BrowserRouter>
           <GAListener trackingId={trackingId} history={history}>
               <App />
-          </GAListener>,
+          </GAListener>
+    </BrowserRouter>,
   document.getElementById('root')
 );
 
