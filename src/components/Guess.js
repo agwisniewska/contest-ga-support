@@ -4,14 +4,8 @@ import ReactGA from 'react-ga';
 
 export function Guess(props) {
 
-    useEffect(() => { GAPageView(props.history.location.pathname); }, []);
-
     const [value, setValue] = useState('');
     const [url, setUrl] = useState('/react/level/1/');
-
-    const GAPageView = (page) => {
-        ReactGA.pageview(page);
-    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
