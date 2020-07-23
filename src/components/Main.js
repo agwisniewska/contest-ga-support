@@ -1,8 +1,6 @@
 import {Route, Switch, Redirect} from "react-router-dom";
 import {Guess} from "./Guess";
 import React from "react";
-import WithTracker from "./WithTracker";
-
 const routes = Array.from(Array(7).keys())
 
 export function Main() {
@@ -15,7 +13,7 @@ export function Main() {
                 <Route exact path="/react" render={() => (
                     <Redirect to="/react/level/1"/>
                 )}/>
-                {routes.map((route, index) => <Route key={index} exact path={`/react/level/:level/`} component={WithTracker(Guess)} />)}
+                {routes.map((route, index) => <Route key={index} exact path={`/react/level/:level/`} component={Guess} />)}
             </Switch>
         </main>
     );
